@@ -2,64 +2,64 @@ package com.jdzl.models;
 
 public class User {
 
-    private String nombre;
-    private String cedula;
-    private String correo;
-    private String url_reporte;
-    private boolean enviar_correo;
+    private String name;
+    private String cc;
+    private String email;
+    private String report_url;
+    private boolean sentToEmail=false;
 
-    public User(String nombre, String cedula, String correo, String url_reporte) {
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.correo = correo;
-        this.url_reporte = url_reporte;
-        this.enviar_correo = false;
-    }
-    public User(String nombre, String cedula, String correo, String url_reporte, boolean enviar_correo) {
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.correo = correo;
-        this.url_reporte = url_reporte;
-        this.enviar_correo = enviar_correo;
+    public User(String name, String cc, String email, String report_url) {
+        this.name = name;
+        this.cc = cc;
+        this.email = email;
+        this.report_url = report_url;
     }
 
-    public String getNombre() {
-        return nombre;
+    public User(String name, String cc, String email, String report_url, boolean sentToEmail) {
+        this.name = name;
+        this.cc = cc;
+        this.email = email;
+        this.report_url = report_url;
+        this.sentToEmail = sentToEmail;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public String getName() {
+        return name;
     }
 
-    public String getCedula() {
-        return cedula;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public String getCc() {
+        return cc;
     }
 
-    public String getCorreo() {
-        return correo;
+    public void setCc(String cc) {
+        this.cc = cc;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public String getEmail() {
+        return email;
     }
 
-    public String getUrl_reporte() {
-        return url_reporte;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public void setUrl_reporte(String url_reporte) {
-        this.url_reporte = url_reporte;
+    public String getReport_url() {
+        return report_url;
     }
 
-    public boolean isEnviar_correo() {
-        return enviar_correo;
+    public void setReport_url(String report_url) {
+        this.report_url = report_url;
     }
 
-    public void setEnviar_correo(boolean enviar_correo) {
-        this.enviar_correo = enviar_correo;
+    public boolean isSentToEmail() {
+        return sentToEmail;
+    }
+
+    public void setSentToEmail(boolean sentToEmail) {
+        this.sentToEmail = sentToEmail;
     }
 }

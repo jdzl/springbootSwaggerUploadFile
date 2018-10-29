@@ -26,7 +26,7 @@ public class userController {
 
 
 	//localhost:8080/mail/1121891106?nombre=david zambrano&accountNumber=6665545&correo=00jdzl@gmail.com&url=http://linux.com&send=false
-
+//https://api4-java-sendmail.herokuapp.com/mail/1121891106?nombre=david%20zambrano&accountNumber=6665545&correo=00jdzl@gmail.com&url=http://linux.com&send=false
 
 	@ApiOperation(
 			value = "Get  accountNumber info",
