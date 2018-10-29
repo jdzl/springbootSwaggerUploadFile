@@ -64,7 +64,7 @@ public class userController {
 
 	@RequestMapping(value = "",method = RequestMethod.GET)
 	public String index() {
-		return "API usuarios :: working from Spring Boot!";
+		return "API usuarios ::  send Mail working from Spring Boot!";
 	}
 
 
