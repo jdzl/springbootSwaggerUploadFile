@@ -25,8 +25,8 @@ public class userController {
 
 
 
-	//localhost:8080/mail/1121891106?nombre=david zambrano&accountNumber=6665545&correo=00jdzl@gmail.com&url=http://linux.com&send=false
-//https://api4-java-sendmail.herokuapp.com/mail/1121891106?nombre=david%20zambrano&accountNumber=6665545&correo=00jdzl@gmail.com&url=http://linux.com&send=false
+	//localhost:8080/mail/1121891106?name=david zambrano&accountNumber=6665545&email=00jdzl@gmail.com&url=http://linux.com&senttoemail=false
+//https://api4-java-sendmail.herokuapp.com/mail/1121891106?name=david zambrano&accountNumber=6665545&email=00jdzl@gmail.com&url=http://linux.com&senttoemail=false
 
 	@ApiOperation(
 			value = "Get  accountNumber info",
@@ -38,28 +38,28 @@ public class userController {
 			@ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
 			@ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
 	})
-	@RequestMapping(value = "/mail/{cedula}",method = RequestMethod.GET, produces = "application/json")
-	public User mail(@PathVariable String cedula,
+	@RequestMapping(value = "/mail/{cc}",method = RequestMethod.GET, produces = "application/json")
+	public User mail(@PathVariable String cc,
 					 @RequestParam String accountNumber,
-					 @RequestParam String nombre,
-					 @RequestParam String correo,
+					 @RequestParam String name,
+					 @RequestParam String email,
 					 @RequestParam String url,
-					 @RequestParam(required=false,defaultValue = "false")  boolean send) {
+					 @RequestParam(required=false,defaultValue = "false")  boolean sentToEmail) {
 
 
-		if(send)
+		if(sentToEmail)
 			try {
 				MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 				MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, false, "utf-8");
-				mimeMessage.setContent(TMail.html(nombre,"Reporte de Extractos",accountNumber,url), "text/html");
-				helper.setTo(correo);
+				mimeMessage.setContent(TMail.html(name,"Reporte de Extractos",accountNumber,url), "text/html");
+				helper.setTo(email);
 				helper.setSubject("GBM extracts "+accountNumber);
 				helper.setFrom("jdzl@gmail.com");
 				javaMailSender.send(mimeMessage);
 
 			}catch (Exception e){}
 
-		return new User(nombre,cedula,correo,url,send);
+		return new User(name,cc,email,url,sentToEmail);
 	}
 
 	@RequestMapping(value = "",method = RequestMethod.GET)
